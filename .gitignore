@@ -1,0 +1,70 @@
+# 编译输出目录
+/build/
+bin/
+obj/
+
+# CMake生成的文件
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# CLion生成的特定文件和目录
+.idea/
+cmake-build-*/
+
+# Windows上的编译生成文件
+*.exe
+*.dll
+*.lib
+*.pdb
+*.exp
+
+# Unix上的编译生成文件
+*.out
+*.a
+*.so
+
+# 编译生成的中间文件
+*.o
+*.obj
+*.lo
+*.lai
+*.la
+
+# 自动生成的头文件
+*.h.gch
+
+# 临时文件和目录
+*.tmp
+*.temp
+*.log
+*.swp
+*~
+
+# 忽略特定工具和IDE的文件
+.vscode/
+*.code-workspace
+
+# 忽略Python虚拟环境
+venv/
+__pycache__/
+*.py[cod]
+
+# 忽略Java相关文件
+*.class
+*.jar
+
+# 忽略Gradle文件
+.gradle/
+build/
+
+# 忽略Maven文件
+target/
+
+# 忽略单元测试报告
+test-output/
+
+# 忽略操作系统生成的文件
+.DS_Store
+Thumbs.db

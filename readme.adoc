@@ -1,0 +1,82 @@
+== build
+
+=== windows side
+
+1. download from https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html[Oracle.com], install jdk-17.0.10
+
+2. configure `JAVA_HOME`
+image:https://s2.loli.net/2024/06/13/xIbFEOpAtoJMjWG.png[configure image]
+
+3. open project with clion, just click build.
+
+=== linux side
+
+
+|===
+|名称 |版本
+
+|linux
+|CentOS Linux release 8.3.2011
+
+|cmake
+|3.30.0-rc1
+
+|jdk
+|jdk-17.0.10
+
+|===
+
+==== install jdk
+
+[source, shell]
+----
+wget http://49.232.8.65/jdk/jdk17/jdk-17_linux-x64_bin.tar.gz -P /home/jdk17/
+
+# as using centos 8, which has own java package management tool
+tar xf /home/jdk17/jdk-17_linux-x64_bin.tar.gz -C /usr/lib/jvm/
+----
+
+include::choose_jdk.adoc[]
+
+[source, shell]
+----
+# configure environment JAVA_HOME will used by cmake
+echo -e 'export JAVA_HOME=/usr/lib/jvm/jdk-17.0.10\nexport CLASSPATH=.:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar\nexport PATH=$JAVA_HOME/bin:$PATH' >> ~/.bashrc
+
+# effect the configuration
+source ~/.bashrc
+
+----
+
+==== install cmake
+
+[source, shell]
+----
+
+wget https://github.com/Kitware/CMake/releases/download/v3.30.0-rc1/cmake-3.30.0-rc1-linux-x86_64.tar.gz
+
+tar -zxvf cmake-3.30.0-rc1-linux-x86_64.tar.gz
+
+cmake -version
+
+----
+
+==== compile
+
+[source, shell]
+----
+git clone git@github.com:Halcyon666/HelloJNI.git
+cd HelloJNI
+cmake .
+make
+----
+
+=== troubleshooting
+
+Q: cmake: symbol lookup error: cmake: undefined symbol: archive_write_add_filter_zstd
+
+A: https://www.phpgolang.com/archives/1308[this article]
+
+Q: set jdk environment but java version also jdk8
+A: use this add and switch
+include::choose_jdk.adoc[]
